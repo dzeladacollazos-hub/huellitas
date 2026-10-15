@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Huellitas | Accesorios personalizados para tu mascota</title>
+  <meta name="description" content="Tienda online de pecheras, collares, correas, placas y juguetes personalizados para perros y gatos. Envíos a todo el Perú.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="header">
+    <div class="header-top">
+      <a href="#inicio" class="logo">Huellitas</a>
+
+      <div class="buscador">
+        <input type="search" id="buscador" placeholder="Buscar collares, juguetes...">
+      </div>
+
+      <div class="header-iconos">
+        <a href="#checkout" title="Mi cuenta">&#128100;</a>
+        <button class="btn-carrito" id="abrirCarrito" title="Mi carrito">
+          &#128722; <span id="contadorCarrito">0</span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#catalogo" data-filtro="perro">Perros</a></li>
+        <li><a href="#catalogo" data-filtro="gato">Gatos</a></li>
+        <li><a href="#personaliza">Personalización</a></li>
+        <li><a href="#catalogo" data-filtro="todos">Catálogo</a></li>
+        <li><a href="#como-funciona">¿Cómo funciona?</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- BANNER PRINCIPAL -->
+    <section class="hero" id="inicio">
+      <div class="hero-texto">
+        <h1>Collares y placas</h1>
+        <p>Accesorios personalizados con el nombre de tu engreído. Envíos a todo el Perú.</p>
+        <a href="#catalogo" class="btn">Compra aquí</a>
+      </div>
+    </section>
+
+    <!-- CATEGORÍAS -->
+    <section class="seccion" id="categorias">
+      <h2 class="titulo-seccion">Explora nuestros productos</h2>
+      <div class="categorias">
+        <a href="#catalogo" class="categoria" data-categoria="pechera">
+          <img src="https://images.pexels.com/photos/15874595/pexels-photo-15874595.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Perro con pechera">
+          <span>Pecheras</span>
+        </a>
+        <a href="#catalogo" class="categoria" data-categoria="collar">
+          <img src="https://images.pexels.com/photos/7349934/pexels-photo-7349934.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Perro con collar">
+          <span>Collares</span>
+        </a>
+        <a href="#catalogo" class="categoria" data-categoria="correa">
+          <img src="https://images.pexels.com/photos/13821852/pexels-photo-13821852.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Perro con correa">
+          <span>Correas</span>
+        </a>
+        <a href="#catalogo" class="categoria" data-categoria="placa">
+          <img src="https://images.pexels.com/photos/29136881/pexels-photo-29136881.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Perro con placa en el collar">
+          <span>Placas</span>
+        </a>
+        <a href="#catalogo" class="categoria" data-categoria="juguete">
+          <img src="https://images.pexels.com/photos/31744794/pexels-photo-31744794.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Perro jugando con juguete">
+          <span>Juguetes</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO DINÁMICO -->
+    <section class="seccion" id="catalogo">
+      <h2 class="titulo-seccion">Catálogo</h2>
+
+      <div class="filtros">
+        <div class="filtros-mascota">
+          <button class="filtro activo" data-mascota="todos">Todos</button>
+          <button class="filtro" data-mascota="perro">Perros</button>
+          <button class="filtro" data-mascota="gato">Gatos</button>
+        </div>
+        <select id="filtroCategoria">
+          <option value="todas">Todas las categorías</option>
+          <option value="pechera">Pecheras</option>
+          <option value="collar">Collares</option>
+          <option value="correa">Correas</option>
+          <option value="placa">Placas</option>
+          <option value="juguete">Juguetes</option>
+        </select>
+      </div>
+
+      <div class="productos" id="listaProductos">
+        <!-- Los productos se cargan con JavaScript -->
+      </div>
+      <p class="sin-resultados" id="sinResultados">No encontramos productos con ese filtro.</p>
+    </section>
+
+    <!-- PERSONALIZACIÓN -->
+    <section class="seccion personaliza" id="personaliza">
+      <h2 class="titulo-seccion">Personalización</h2>
+      <p class="subtitulo">Elige el diseño, color y graba su nombre para un accesorio que refleje su personalidad única.</p>
+
+      <div class="personaliza-contenido">
+        <form id="formPersonaliza" class="form-personaliza">
+          <label for="tipoPersonaliza">Producto</label>
+          <select id="tipoPersonaliza">
+            <option value="placa">Placa de identificación - S/ 25.00</option>
+            <option value="collar">Collar con nombre bordado - S/ 39.90</option>
+          </select>
+
+          <label for="nombreMascota">Nombre de tu mascota</label>
+          <input type="text" id="nombreMascota" maxlength="12" placeholder="Ej: Max">
+
+          <label for="telefonoPlaca">Celular de contacto (va detrás de la placa)</label>
+          <input type="tel" id="telefonoPlaca" maxlength="9" placeholder="Ej: 987654321">
+
+          <label>Color</label>
+          <div class="colores">
+            <label><input type="radio" name="color" value="#c9a227" checked> Dorado</label>
+            <label><input type="radio" name="color" value="#a8a8a8"> Plateado</label>
+            <label><input type="radio" name="color" value="#c0392b"> Rojo</label>
+            <label><input type="radio" name="color" value="#2e6da4"> Azul</label>
+          </div>
+
+          <p class="error" id="errorPersonaliza"></p>
+          <button type="submit" class="btn">Agregar al carrito</button>
+        </form>
+
+        <div class="vista-previa">
+          <p>Vista previa</p>
+          <div class="placa" id="placaPrevia">
+            <span id="textoPrevio">MAX</span>
+          </div>
+          <small id="telefonoPrevio">Cel: ---------</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANNER SECUNDARIO -->
+    <section class="banner">
+      <h2>Pequeños detalles, grandes momentos</h2>
+      <p>Porque cada momento junto a ellos merece algo especial.</p>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <section class="seccion" id="como-funciona">
+      <h2 class="titulo-seccion">¿Cómo funciona Huellitas?</h2>
+      <div class="pasos">
+        <article class="paso">
+          <h3>1. Elige</h3>
+          <p>Explora nuestros productos y encuentra lo que necesitas.</p>
+        </article>
+        <article class="paso">
+          <h3>2. Personaliza</h3>
+          <p>Añade el nombre o diseño especial que prefieras.</p>
+        </article>
+        <article class="paso">
+          <h3>3. Recibe</h3>
+          <p>Envíos seguros y rápidos a todo el Perú.</p>
+        </article>
+      </div>
+
+      <div class="beneficios">
+        <div><strong>&#128274; Compra segura</strong><p>Tus datos protegidos.</p></div>
+        <div><strong>&#128666; Envíos a todo Perú</strong><p>Shalom y Olva Courier.</p></div>
+        <div><strong>&#128179; Múltiples medios de pago</strong><p>Yape, Plin, Visa y Culqi.</p></div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="seccion" id="testimonios">
+      <h2 class="titulo-seccion">Lo que dicen nuestros clientes</h2>
+      <div class="testimonios">
+        <blockquote>
+          <p>"El arnés es de muy buena calidad y el envío súper rápido. Mi perrito está feliz."</p>
+          <cite>Daniel R. ★★★★★</cite>
+        </blockquote>
+        <blockquote>
+          <p>"Me encantó la personalización, se ve súper lindo y la calidad muy buena."</p>
+          <cite>Luz D. ★★★★</cite>
+        </blockquote>
+        <blockquote>
+          <p>"Los juguetes son resistentes y a mi perro le encantaron. Definitivamente volveré a comprar."</p>
+          <cite>Camilo S. ★★★★★</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- CHECKOUT -->
+    <section class="seccion" id="checkout">
+      <h2 class="titulo-seccion">Finalizar compra</h2>
+
+      <form id="formCheckout" class="form-checkout" novalidate>
+        <fieldset>
+          <legend>1. Tus datos</legend>
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" placeholder="Nombre y apellido">
+
+          <label for="celular">Celular</label>
+          <input type="tel" id="celular" maxlength="9" placeholder="9XXXXXXXX">
+
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" placeholder="tucorreo@gmail.com">
+        </fieldset>
+
+        <fieldset>
+          <legend>2. Envío</legend>
+          <button type="button" class="btn-secundario" id="btnUbicacion">&#128205; Usar mi ubicación</button>
+          <p class="mensaje-ubicacion" id="mensajeUbicacion"></p>
+
+          <label for="departamento">Departamento</label>
+          <select id="departamento">
+            <option value="">Selecciona...</option>
+            <option value="Lima">Lima</option>
+            <option value="Callao">Callao</option>
+            <option value="Arequipa">Arequipa</option>
+            <option value="La Libertad">La Libertad</option>
+            <option value="Lambayeque">Lambayeque</option>
+            <option value="Piura">Piura</option>
+            <option value="Cusco">Cusco</option>
+            <option value="Junín">Junín</option>
+            <option value="Ica">Ica</option>
+            <option value="Otro">Otro departamento</option>
+          </select>
+
+          <label for="direccion">Dirección o agencia de recojo</label>
+          <input type="text" id="direccion" placeholder="Av. / Jr. / Calle, número, distrito">
+
+          <p class="label">Tipo de envío</p>
+          <label class="opcion"><input type="radio" name="envio" value="olva" checked> Olva Courier - Entrega a domicilio</label>
+          <label class="opcion"><input type="radio" name="envio" value="shalom"> Shalom - Recojo en agencia</label>
+          <p class="info-envio" id="infoEnvio">Selecciona tu departamento para calcular el envío.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>3. Método de pago</legend>
+          <label class="opcion"><input type="radio" name="pago" value="Yape"> Yape</label>
+          <label class="opcion"><input type="radio" name="pago" value="Plin"> Plin</label>
+          <label class="opcion"><input type="radio" name="pago" value="Tarjeta Visa (Niubiz)"> Tarjeta Visa (Niubiz)</label>
+          <label class="opcion"><input type="radio" name="pago" value="Culqi"> Tarjeta débito/crédito (Culqi)</label>
+          <label class="opcion"><input type="radio" name="pago" value="Contraentrega"> Pago contraentrega</label>
+        </fieldset>
+
+        <div class="resumen">
+          <p>Subtotal: <span id="resSubtotal">S/ 0.00</span></p>
+          <p>Envío: <span id="resEnvio">S/ 0.00</span></p>
+          <p class="total">Total: <span id="resTotal">S/ 0.00</span></p>
+        </div>
+
+        <p class="error" id="errorCheckout"></p>
+        <button type="submit" class="btn">Confirmar pedido</button>
+      </form>
+
+      <div class="confirmacion" id="confirmacion">
+        <h3>¡Pedido confirmado! &#128062;</h3>
+        <p id="textoConfirmacion"></p>
+        <a href="#inicio" class="btn">Volver al inicio</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CARRITO LATERAL -->
+  <aside class="carrito" id="carrito">
+    <div class="carrito-header">
+      <h3>Mi carrito</h3>
+      <button id="cerrarCarrito">&times;</button>
+    </div>
+    <ul class="carrito-lista" id="carritoLista"></ul>
+    <p class="carrito-vacio" id="carritoVacio">Tu carrito está vacío.</p>
+    <div class="carrito-footer">
+      <p>Subtotal: <strong id="carritoSubtotal">S/ 0.00</strong></p>
+      <a href="#checkout" class="btn" id="irCheckout">Finalizar compra</a>
+    </div>
+  </aside>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <div class="footer-contenido">
+      <div>
+        <p class="logo">Huellitas</p>
+        <p>Accesorios personalizados para perros y gatos.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#como-funciona">Sobre nosotros</a></li>
+        <li><a href="#" id="linkContacto">Contacto</a></li>
+        <li><a href="#">Política de privacidad</a></li>
+        <li><a href="#">Libro de reclamaciones</a></li>
+      </ul>
+      <div class="footer-qr">
+        <img id="qrTienda" src="" alt="Código QR de la tienda">
+        <p>Escanea y compra desde tu celular con el cupón <strong>HUELLA10</strong></p>
+      </div>
+    </div>
+    <p class="copy">&copy; 2026 Huellitas - Proyecto académico ISIL</p>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+  <a class="whatsapp" id="btnWhatsapp" href="#" target="_blank" title="Escríbenos por WhatsApp">
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@11.0.0/icons/whatsapp.svg" alt="WhatsApp">
+  </a>
+
+  <!-- Aviso de producto agregado -->
+  <div class="aviso" id="aviso"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
