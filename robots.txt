@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dzeladacollazos-hub.github.io/huellitas/sitemap.xml
