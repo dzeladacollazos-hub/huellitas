@@ -373,6 +373,17 @@ const urlTienda = window.location.href.split("#")[0];
 document.getElementById("qrTienda").src =
   "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(urlTienda + "?utm_source=qr&cupon=HUELLA10");
 
+// ---------- Menú hamburguesa (celular) ----------
+const btnMenu = document.getElementById("btnMenu");
+const menuPrincipal = document.getElementById("menuPrincipal");
+btnMenu.addEventListener("click", () => {
+  const abierto = menuPrincipal.classList.toggle("abierto");
+  btnMenu.setAttribute("aria-expanded", abierto);
+});
+menuPrincipal.querySelectorAll("a").forEach((a) =>
+  a.addEventListener("click", () => menuPrincipal.classList.remove("abierto"))
+);
+
 // ---------- Inicio ----------
 mostrarProductos();
 actualizarCarrito();
