@@ -2,6 +2,7 @@
 :root {
   --dorado: #a8935f;
   --dorado-claro: #f6efe3;
+  --dorado-oscuro: #7a6634; /* PA3: mejor contraste con texto blanco */
   --marron: #6b4f1e;
   --fondo: #f3f2f6;
   --blanco: #ffffff;
@@ -150,6 +151,18 @@ h1, h2, h3, .logo {
   color: var(--blanco);
 }
 
+/* Botón de menú (solo se ve en celular) */
+.btn-menu {
+  display: none;
+  background: none;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0 16px 10px;
+  cursor: pointer;
+}
+
 /* ===== HERO ===== */
 .hero {
   height: 520px;
@@ -182,7 +195,7 @@ h1, h2, h3, .logo {
 }
 
 .titulo-seccion {
-  background-color: var(--dorado);
+  background-color: var(--dorado-oscuro);
   color: var(--blanco);
   font-size: 34px;
   padding: 10px 40px;
@@ -246,7 +259,7 @@ h1, h2, h3, .logo {
 }
 
 .filtro.activo {
-  background: var(--dorado);
+  background: var(--dorado-oscuro);
   color: var(--blanco);
 }
 
@@ -328,7 +341,8 @@ h1, h2, h3, .logo {
   background: var(--blanco);
   padding: 30px;
   border-radius: 12px;
-  width: 420px;
+  width: 100%;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
 }
@@ -424,7 +438,7 @@ h1, h2, h3, .logo {
 }
 
 .paso {
-  background-color: var(--dorado);
+  background-color: var(--dorado-oscuro);
   color: var(--blanco);
   padding: 30px;
   border-radius: 12px;
@@ -463,7 +477,7 @@ h1, h2, h3, .logo {
   display: block;
   margin-top: 10px;
   font-style: normal;
-  color: #e0a800;
+  color: var(--marron);
 }
 
 /* ===== CHECKOUT ===== */
@@ -757,7 +771,7 @@ h1, h2, h3, .logo {
   }
 
   .hero-texto h1 {
-    font-size: 44px;
+    font-size: 34px;
   }
 
   .seccion {
@@ -796,5 +810,66 @@ h1, h2, h3, .logo {
     flex-wrap: wrap;
     justify-content: center;
     gap: 12px 20px;
+  }
+}
+
+/* ===== MEJORAS MÓVIL PA3 ===== */
+@media (max-width: 600px) {
+  /* Buscador en segunda línea y a todo el ancho */
+  .header-top {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .buscador {
+    order: 3;
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  /* Menú hamburguesa */
+  .btn-menu {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .nav.abierto {
+    display: block;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 0 16px 12px;
+  }
+
+  .nav li a {
+    display: block;
+    padding: 10px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  /* Botón de WhatsApp más pequeño y espacio al final */
+  .whatsapp {
+    width: 48px;
+    height: 48px;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .whatsapp img {
+    width: 26px;
+  }
+
+  body {
+    padding-bottom: 70px;
+  }
+
+  /* Evita que el formulario de compra se salga de la pantalla */
+  fieldset {
+    min-width: 0;
   }
 }
